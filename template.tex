@@ -23,70 +23,35 @@
 \usepackage{hyperref} % Hyperlinks
 \usepackage{csquotes} % Noodzakelijk in combinatie met babel.
 
-\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
-% biblatex: laadt het pakket dat de bibliografische informatie afhandelt. Een andere optie is natbib, waarmee meer aanpassingen mogelijk zijn
-% - style=apa: stelt het referentieformaat in om apa te gebruiken (zij het de 6e editie)
-\DeclareLanguageMapping{dutch}{dutch-apa}
-\addbibresource{bibliografie.bib} % De bibliografische informatie voor je referenties vanuit Zotero. Dit bestand moet je niet zelf aanmaken, maar exporteren vanuit Zotero (best door de plugin `Better BibTex`: https://retorque.re/zotero-better-bibtex/) en hier uploaden.
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex} % Refereren in LaTeX volgens APA7.
+\DeclareLanguageMapping{dutch}{dutch-apa} % Taalkeuze referentiestijl.
+\addbibresource{bibliografie.bib} % Pas dit aan naar de naam van jouw .bib bestand.
 
-\usepackage[T1]{fontenc} 
-\usepackage{mathptmx} % Dit is het Times New Roman-lettertype, dat in mijn tijd de norm was. Als je een ander lettertype wilt gebruiken, zie je hier de opties: https://www.overleaf.com/learn/latex/Font_typefaces
-% Als alternatief kun je deze twee commando's uitcommentariëren of verwijderen en gewoon het standaardlettertype van Overleaf gebruiken. Zo veel keuzes!
+\usepackage[T1]{fontenc} % Times New Roman.
+\usepackage{mathptmx} % Wiskundefont.
 
 % ================================================================
 
 % Titelpagina _____________________
-\title{APA7 \LaTeX{} template met Zotero referentiebeheer voor Wetenschappelijke Methodiek}  % De grote, lange versie van de titel voor de titelpagina.
-\shorttitle{\LaTeX{} voor Wetenschappelijke Methodiek}  % De korte titel voor de koptekst.
+\title{Grote Lange Versie van de Titel voor de Titelpagina}
+\shorttitle{Korte Titel}
 \author{[Jouw Naam Hier]}
 \duedate{\today}
 % \date{January 17, 2024}  % De studentenversie gebruikt het commando \datum niet, om wat voor reden dan ook.
 \authorsaffiliations{ASO Spijker}
-\course{5 Wetenschappelijke Methodiek}  % LaTeX raakt geïrriteerd als dit leeg is, dus zet ik hier iets neer. Als je docent je echter een onvoldoende geeft omdat dit op de titelpagina staat, kun je deze regel leeg laten (verwijder de inhoud, maar laat '\course' staan) en vrede hebben met de fout die dan optreedt. Het document wordt er niet slechter van.
-\professor{Pieter Smets}  % Dezelfde situatie als bij de cursusinformatie. Sommige instructeurs willen dit, andere absoluut niet en halen er punten vanaf. Dus doe wat je moet doen.
+\course{5 Wetenschappelijke Methodiek}  % Laat dit leeg als je dit veld niet nodig hebt.
+\professor{Pieter Smets}  % Laat dit leeg als je dit veld niet nodig hebt.
 
-\abstract{Dit is de samenvatting voor dit artikel waarin de belangrijkste punten van de inleiding, methode, resultaten en discussie snel worden besproken. Waarschijnlijk in meer dan één zin. Durf ik te gokken, meer dan twee? Er is een pagina-einde voordat de inleiding begint.}
+\abstract{[Hier komt de samenvatting]}
 
-\keywords{APA style, voorbeeld, \LaTeX{}, bibliografie, Zotero} % Als je trefwoorden nodig hebt voor je paper, verwijder dan de % aan het begin van deze regel
+\keywords{kernwoord 1, kernwoord 2, nog eentje} % Als je trefwoorden nodig hebt voor je paper, verwijder dan de % aan het begin van deze regel
 
 \begin{document}
 \maketitle  % De standaard in LaTeX voor het aanmaken van de titelpagina.
 
-% \section{Introductie}  % Dit commando is uitgecommentarieerd, omdat mij geleerd is dat het overbodig is om de titel en de inleiding van het paper samen te hebben. Als je docent wil dat er "Introductie" staat, verwijder dan de % aan het begin.
+% \section{Introductie} 
 
-Begin je paper met de inleiding. 
-Je moet de actieve stem gebruiken in plaats van de passieve stem (de zombiestem).
-
-Dit sjabloon is opgemaakt volgens de richtlijnen van APA Style: marges van één inch boven, onder, links en rechts; lettertype Times New Roman 12 punts; dubbele interlinie; links uitgelijnd; en alinea's ingesprongen. 
-Het paginanummer staat een centimeter van de rechterrand op de eerste regel van elke pagina.
-
-Dit sjabloon is geschreven vanuit de situatie van een labrapport, in plaats van andere soorten werkstukken die je misschien schrijft. 
-Dit betekent dat de koppen vooraf zijn gevuld met de normale blokken voor dat type werkstuk (bv. methode, resultaten, enz.). 
-Als je een ander soort werkstuk schrijft, kun je de koppen en subkoppen naar behoefte toevoegen, verwijderen of wijzigen. 
-Voor de duidelijkheid, koppen zijn de belangrijkste onderdelen van het artikel (bv. Inleiding, Methode, enz.). Subkoppen zijn de onderdelen binnen die brokken (bv. Deelnemers, Materialen, enz. in de Methode). 
-Dit is iets gemakkelijker te zien in \LaTeX{} door de manier waarop je ermee communiceert en vertelt wat er gebeurt.
-
-Aangezien de inleiding de eerste plaats is waar referenties in papers verschijnen, laten we er nu een paar opnemen. 
-Er zijn enkele details waar je op moet letten bij het gebruik van LaTeX {} om je werkstuk te schrijven (ja, er is een LaTeX{} commando om het er zo mooi uit te laten zien, want natuurlijk is dat er). 
-Verwijzen naar iets \textbf{in tekst} doe je door de naam in tekst te zetten met het jaartal tussen haakjes; gelukkig voor ons verwerkt \LaTeX{} dit met het juiste commando, zoals \textcite{Sample2024}. 
-Wil je misschien gewoon alles opnemen als een tekstbf{parenthetisch}? 
-Dat kan ook met \LaTeX{}. 
-Bij werken met meerdere auteurs wordt de eerste keer de volledige auteurslijst opgenomen. 
-Echter, als die referentie later weer verschijnt, wordt hij ingekort zoals APA het bedoeld had: \parencite{Multiauthor2020}.
-Om wat voor reden dan ook lijkt het er niet op dat het multi-auteur werk \parencite[e.g.,][]{Multiauthor2020} werkt zoals het hoort, waar het de volledige lijst geeft de eerste keer dat het wordt opgenomen in de tekst, en daarna wordt ingekort \parencite{Multiauthor2020}. 
-Ik weet niet zeker wat er aan de hand is, dus het beste advies dat ik je kan geven is om de eerste instantie zelf uit te schrijven en de rest aan LaTeX over te laten. 
-Het is waardeloos, ik weet het. Dat is soms de aard van het beestje LaTeX.
-
-Voor de opmaak moet de pagina Referenties op een nieuwe pagina beginnen. Dit \textit{zou} automatisch geregeld moeten worden door \LaTeX{}, maar het is toch handig om de opmaak te kennen.
-
-Terwijl ik je aandacht heb voordat ik in de secties duik, is er iets dat misschien onopgemerkt voorbijgaat: de \LaTeX{} eigenaardigheid over aanhalingstekens. 
-Als je een citaat opneemt met de gewone aanhalingstekens, "ziet het er zo uit". 
-De specifieke manier van \LaTeX{} om dit te doen, die net dat beetje extra flair geeft, is om een dubbel vinkje te gebruiken (op de tilde-toets boven op de nummerrij) om het citaat te beginnen, en een dubbele apostrof om het te sluiten. Dan ziet het citaat er ``zo uit''. 
-Het zijn ``leuke kleine mannetjes'' die je citaat omhelzen, in plaats van de "meer saaie tekens" die je krijgt van de gewone aanhalingstekens.
-
-Om dit gedeelte af te sluiten, zal ik het tot slot hebben over de inhoud van de inleiding. Denk bij dit soort werkstukken aan het informatieproces in de vorm van een zandloper (blijf bij me, het wordt duidelijk). Het algemene idee is dat je begint op het breedste punt en dan steeds specifieker wordt, totdat je bij het punt van dit artikel bent - de theorie die getest wordt en de hypothese. 
-Dan blijf je op dat specifieke detailniveau tot aan de Methoden en Resultaten. 
-De Discussie begint specifiek (d.w.z. wat je wel of niet hebt gevonden) en werkt dan terug naar de bredere betekenis of implicaties.
+...
 
 \section{Midden}
 
@@ -94,15 +59,7 @@ De Discussie begint specifiek (d.w.z. wat je wel of niet hebt gevonden) en werkt
 
 \section{Discussie}
 
-Zoals vermeld aan het einde van de Introductie, begint de Discussie specifiek voordat het een breder beeld schetst. Dit betekent meestal dat de discussie begint met een herhaling van de resultaten, met meer nadruk op de interpretatie. Welke verschillen zijn er wel (of niet) gevonden? Ondersteunt dit je voorspellingen, of heb je de nulhypothese niet verworpen? Verklaringen van die aard.
-
-Als je dat gedaan hebt, kun je je bevindingen koppelen aan de bestaande literatuur. Misschien ondersteunt dit resultaat het werk van \textcite{Contributor2023} maar spreekt het anderen tegen \parencite[bv.,][]{Sample2024}.  % De extra vierkante haakjes hier vertellen LaTeX dat de bv., vooraan moet staan; het lijkt er anders van uit te gaan dat de bv., na het citaat hoort. Merk ook op dat ik deze opmerking hier kan plaatsen zonder de alinea af te breken. Je hebt een dubbele regeleinde nodig om paragrafen te scheiden.
-Waarom zou dit het geval kunnen zijn? Welke overeenkomsten of verschillen bestaan er tussen jouw experiment en de andere werken die de verschillen zouden kunnen verklaren? Of als de resultaten vergelijkbaar zijn, wat betekent dit dan voor de kerntheorie (bijvoorbeeld, laat het zien dat het stand houdt met andere stimuli, of in een andere context, of met een andere timing, etc.).
-
-Het is ook belangrijk om te werken met mogelijke beperkingen van je werk. In cognitieve labrapporten voor studenten gaat het vaak over de steekproefgrootte. Het kan moeilijk zijn om significantie te bereiken als je een steekproefgrootte van 10 hebt. Andere veelvoorkomende beperkingen kunnen dingen zijn zoals de stimuli werkten niet zoals je had gehoopt, de deelnemers begrepen de aanwijzingen voor het experiment niet (of waren niet op de hoogte van wat je aan het testen was waardoor hun gegevens vertekend werden), of dingen die je opmerkt tijdens het uitvoeren van het experiment die je anders zou doen als je het in de toekomst opnieuw zou doen.
-
-Sluit af met een korte samenvatting van je bevindingen, wat het betekent voor de theorie die je aan het testen was en wat het zou kunnen betekenen voor toekomstig onderzoek. 
-Veel schrijfplezier!
+...
 
 \printbibliography
 
